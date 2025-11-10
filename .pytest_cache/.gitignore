@@ -1,0 +1,22 @@
+# Created by pytest automatically.
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment
+venv/
+.env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Reports and test output
+reports/
+allure-results/
+allure-report/
+htmlcov/
+
