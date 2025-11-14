@@ -21,7 +21,7 @@ def page(browser):
 
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def logged_in_page(browser):
         context = browser.new_context()
         page = context.new_page()

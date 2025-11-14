@@ -1,0 +1,15 @@
+[
+  "tests/test_add_items.py::test_add_item_to_cart",
+  "tests/test_add_items.py::test_add_items_to_cart",
+  "tests/test_add_items.py::test_products_displayed",
+  "tests/test_login.py::test_empty_password",
+  "tests/test_login.py::test_empty_username",
+  "tests/test_login.py::test_empty_username_and_password",
+  "tests/test_login.py::test_invalid_username_and_password",
+  "tests/test_login.py::test_locked_out_user",
+  "tests/test_login.py::test_valid_login[data0]",
+  "tests/test_login.py::test_valid_login[data1]",
+  "tests/test_login.py::test_valid_login[data2]",
+  "tests/test_login.py::test_valid_login[data3]",
+  "tests/test_login.py::test_valid_login[data4]"
+]
