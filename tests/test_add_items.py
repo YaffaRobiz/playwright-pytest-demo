@@ -8,5 +8,4 @@ def test_products_displayed(logged_in_page):
     assert product_titles > 0, "No products found on the inventory page."
     
 
-def test_add_items_to_cart(logged_in_page):
-   ## rewrite
+# def test_add_items_to_cart(logged_in_page):
