@@ -1,5 +1,6 @@
 from pages.login_page import LoginPage
 from utils.data_reader import get_json_data
+from playwright.sync_api import expect
 import pytest
 
 test_data = get_json_data("./test_data/login_test_data.json")
@@ -10,7 +11,8 @@ def test_valid_login(page, data):
     login_page.open()
     login_page.login(data["username"], data["password"])
     # Verify successful login by checking URL
-    assert page.url == "https://www.saucedemo.com/inventory.html"
+    expect(page).to_have_url("**/inventory.html")
+
 
 def test_locked_out_user(page):
     login_page = LoginPage(page)

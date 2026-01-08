@@ -1,5 +1,6 @@
 from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
+import pytest
 
 def test_products_displayed(logged_in_page):
     page = logged_in_page

@@ -4,10 +4,10 @@ class HamburgerMenu:
     def __init__(self, page: Page):
         self.page = page
         self.menu_button = page.get_by_role("button", name="Open Menu")
-        self.all_items_link = page.locator("[data-test=\"inventory-sidebar-link\"]")
-        self.about_link = page.locator("[data-test=\"about-sidebar-link\"]")
-        self.logout_link = page.locator("[data-test=\"logout-sidebar-link\"]")
-        self.reset_app_state_link = page.locator("[data-test=\"reset-sidebar-link\"]")
+        self.all_items_link = page.get_by_role("link", name="All Items")
+        self.about_link = page.get_by_role("link", name="About")
+        self.logout_link = page.get_by_role("link", name="Logout")
+        self.reset_app_state_link = page.get_by_role("link", name="Reset App State")
         self.close_menu_button = page.get_by_role("button", name="Close Menu")
    
 
