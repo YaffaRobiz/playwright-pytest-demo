@@ -1,3 +1,4 @@
+from itertools import product
 from playwright.sync_api import Page
 
 
@@ -19,20 +20,28 @@ class InventoryPage:
     def count_items(self) -> int:
         return self.item_name.count()
     
-    def get_all_item_prices(self) -> list[str]:
-        return self.item_price.all_inner_texts()
     
     def add_item_to_cart(self, item_name: str):
-        for i, name in enumerate(self.get_all_item_names()): # enumerate is a method that returns both the index and the value of each item in an iterable
-            if name == item_name:
-                self.add_to_cart_button.nth(i).click()
-                break
+        product = self.page.locator(
+            ".inventory_item",
+            has=self.page.locator(".inventory_item_name", has_text=item_name)
+            )
+        product.locator("button").click()
+
+    def add_items_to_cart(self, item_names: list[str]):
+        for item_name in item_names:
+            self.add_item_to_cart(item_name)
 
     def remove_item_from_cart(self, item_name: str):
-        for i, name in enumerate(self.get_all_item_names()): 
-            if name == item_name:
-                self.remove_item_button.nth(i).click()
-                break
+        product = self.page.locator(
+            ".inventory_item",
+            has=self.page.locator(".inventory_item_name", has_text=item_name)
+            )
+        product.locator("button").click()
+
+    def remove_items_from_cart(self, item_names: list[str]):
+        for item_name in item_names:
+            self.remove_item_from_cart(item_name)
 
     def go_to_cart(self):
         self.cart_link.click()

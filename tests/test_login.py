@@ -3,9 +3,9 @@ from utils.data_reader import get_json_data
 from playwright.sync_api import expect
 import pytest
 
-test_data = get_json_data("./test_data/login_test_data.json")
+credentials = get_json_data("./test_data/login_test_data.json")
 
-@pytest.mark.parametrize("data", test_data)
+@pytest.mark.parametrize("data", credentials)
 def test_valid_login(page, data):
     login_page = LoginPage(page)
     login_page.open()
