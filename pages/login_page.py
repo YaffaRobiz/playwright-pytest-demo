@@ -19,4 +19,7 @@ class LoginPage:
         self.login_button.click()
 
     def get_error_message(self) -> str:
-        return self.error_message.inner_text()
+        return self.error_message
+    
+
+    

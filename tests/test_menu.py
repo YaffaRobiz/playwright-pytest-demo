@@ -1,8 +1,6 @@
 from pages.login_page import LoginPage
 from pages.hamburger_menu import HamburgerMenu
 from playwright.sync_api import expect
-import pytest
-
 
 
 def test_go_to_all_items(logged_in_page):
@@ -10,14 +8,14 @@ def test_go_to_all_items(logged_in_page):
     menu = HamburgerMenu(page)
     menu.open_menu()
     menu.navigate_to_all_items()
-    assert page.url == "https://www.saucedemo.com/inventory.html"
+    expect(page).to_have_url("https://www.saucedemo.com/inventory.html")
 
 def test_go_to_about_page(logged_in_page):
     page = logged_in_page
     menu = HamburgerMenu(page)
     menu.open_menu()
     menu.navigate_to_about()
-    assert page.url == "https://saucelabs.com/"
+    expect(page).to_have_url("https://saucelabs.com/")
 
 
 def test_logout(logged_in_page):
@@ -34,7 +32,7 @@ def test_logout(logged_in_page):
 
     # Check direct navigation to inventory redirects to login (user cannot access)
     page.goto("https://www.saucedemo.com/inventory.html")  
-    assert login_page.get_error_message() == "Epic sadface: You can only access '/inventory.html' when you are logged in."
+    expect(login_page.get_error_message()).to_have_text("Epic sadface: You can only access '/inventory.html' when you are logged in."), "Expected error message for accessing inventory without login not displayed"
 
 
 

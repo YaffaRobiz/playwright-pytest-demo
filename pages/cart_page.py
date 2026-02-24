@@ -9,6 +9,7 @@ class CartPage:
         self.remove_item_button = page.locator("[data-test^=\"remove-\"]")
         self.item_price = page.locator("[data-test=\"inventory-item-price\"]")
         self.item_name = page.locator("[data-test=\"inventory-item-name\"]")
+        self.thanks_message = page.get_by_text("THANK YOU FOR YOUR ORDER")
 
     
     def click_continue_shopping_button(self):
@@ -36,6 +37,9 @@ class CartPage:
     def remove_items_from_cart(self, item_names: list[str]):
         for item_name in item_names:
             self.remove_item_from_cart(item_name)
+
+    def get_thanks_message(self) -> str:
+        return self.thanks_message
 
     
     

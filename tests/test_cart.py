@@ -2,7 +2,8 @@ from pages.checkout_page import CheckoutPage
 from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
 from utils.data_reader import get_json_data
-import pytest
+from playwright.sync_api import expect
+
 
 checkout_information = get_json_data("./test_data/checkout_information.json")
 
@@ -36,4 +37,4 @@ def test_checkout_success(cart_with_items):
 
     checkout_page.continue_button.click()
     checkout_page.finish_button.click()
-    assert cart_page.page.get_by_text("THANK YOU FOR YOUR ORDER").is_visible()
+    expect(cart_page.get_thanks_message()).to_be_visible()
