@@ -5,12 +5,12 @@ from playwright.sync_api import Page
 class InventoryPage:
     def __init__(self, page: Page):
         self.page = page
-        self.item_name = page.locator("[data-test=\"inventory-item-name\"]")
-        self.item_description = page.locator("[data-test=\"inventory-item-desc\"]")
-        self.item_price = page.locator("[data-test=\"inventory-item-price\"]")
-        self.add_to_cart_button = page.locator("[data-test^=\"add-to-cart-\"]")
-        self.remove_item_button = page.locator("[data-test^=\"remove-\"]")
-        self.cart_link = page.locator("[data-test=\"shopping-cart-link\"]")
+        self.item_name = page.locator("div.inventory-item-name")
+        self.item_description = page.locator("div.inventory-item-desc")
+        self.item_price = page.locator("div.inventory-item-price")
+        self.add_to_cart_button = page.locator("button.add-to-cart-btn")
+        self.remove_item_button = page.locator("button.remove-btn")
+        self.cart_link = page.locator("a.shopping_cart_link")
 
 
 
